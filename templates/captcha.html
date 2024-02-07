@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캡차 챌린지</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #captcha-container {
+            width: 200px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px solid #333;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        #captcha-text {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 100px;
+        }
+
+        #captcha-box {
+            width: 200px;
+            height: 50px;
+            background-color: #fff;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+
+        #captcha-input {
+            width: 194px;
+            height: 40px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        #captcha-submit {
+            width: 100px;
+            height: 30px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        #captcha-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>캡차 챌린지</h1>
+    <p>다음의 도전 과제를 해결하여 인간임을 증명하세요:</p>
+    <div id="captcha-container">
+        <div id="captcha-text">{{ code }}</div>
+    </div>
+    <form id="captcha-form" method="POST" action="{{ url_for('captcha') }}">
+        <div id="captcha-box">
+            <input id="captcha-input" type="text" placeholder="위의 코드를 입력하세요." name="code" required>
+            <input type="hidden" name="web" value="{{ request.args.get('web') }}">
+            <br>
+            <button id="captcha-submit" type="submit">제출</button>
+        </div>
+    </form>
+    {% if error %}
+    <br>
+    <p id="captcha-message">죄송합니다. 잘못되었습니다. 다시 시도해주세요.</p>
+    {% endif %}
+    <script>
+        // 사용자 입력이 코드와 일치하는지 확인
+        var captchaForm = document.getElementById('captcha-form');
+        captchaForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var captchaInput = document.getElementById('captcha-input');
+            var message = document.getElementById('captcha-message');
+            if (captchaInput.value == "{{ code }}") {
+                // 폼 제출
+                captchaForm.submit();
+            } else {
+                message.innerText = '죄송합니다. 잘못되었습니다. 다시 시도해주세요.';
+                captchaInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
